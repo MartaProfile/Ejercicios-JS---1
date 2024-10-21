@@ -1,9 +1,10 @@
 // --------------------------------------------------------------------------------
-/* EXERCISE 1 */
-Implementa una función llamada `generateCrossMatrix(n)` que recibe como parámetro un número entero `n`. Esta función debe generar y devolver un array de tamaño `n*n` que represente una cruz (X). Las líneas que conforman la cruz deben utilizar el carácter 'X'. Todas las demás posiciones del array deben contener el carácter _espacio en blanco_ (' ').
+/* EXERCISE 1 
+Implementa una función llamada `generateCrossMatrix(n)` que recibe como parámetro un número entero `n`. Esta función debe generar y devolver un array de tamaño `n*n` que represente una cruz (X). 
+Las líneas que conforman la cruz deben utilizar el carácter 'X'. Todas las demás posiciones del array deben contener el carácter _espacio en blanco_ (' ').
 
 Además, si el tamaño `n` pasado a la función es par, la función debe lanzar un error con el mensaje "The size of the array must be an odd number".
-
+*/
 // --------------------------------------------------------------------------------
 
 
@@ -31,15 +32,17 @@ export function generateCrossMatrix(n) {
 
 
 // --------------------------------------------------------------------------------
-// EXERCISE 2
+/* EXERCISE 2
 
-Queremos dar forma a una pequeña estructura de clases para posteriormente poder instanciar objetos de las clases extendidas de una clase abstracta. En este ejercicio implementarás la clase abstracta, mientras que en los siguientes (ejercicios 4.1, 4.2 y 4.3) abordarás las clases que extienden de ella.
+Queremos dar forma a una pequeña estructura de clases para posteriormente poder instanciar objetos de las clases extendidas de una clase abstracta. En este ejercicio implementarás la clase abstracta, 
+mientras que en los siguientes (ejercicios 4.1, 4.2 y 4.3) abordarás las clases que extienden de ella.
 
 Implementa una clase `Sport` cuyo constructor debe aceptar los siguientes parámetros:
 
 - `name`: Nombre del deporte.
 - `playersByTeam`: Número de jugadores por equipo.
-- `type`: Tipo de deporte. Este parámetro solo puede contener uno de los dos valores especificados en el objeto dado `SportTypes` que simula un objeto de tipo enumerado (recuerda que en Javascript no existe el tipo enumerado, pero es posible simularlo de este modo).
+- `type`: Tipo de deporte. Este parámetro solo puede contener uno de los dos valores especificados en el objeto dado `SportTypes` que simula un objeto de tipo enumerado 
+(recuerda que en Javascript no existe el tipo enumerado, pero es posible simularlo de este modo).
 
 Encontrarás el objeto `SportTypes` en el fichero `src/pec2/pec2.js`. En concreto, este es el código:
 
@@ -50,7 +53,8 @@ export const SportTypes = {
 };
 ```
 
-> **Nota:** Ten en cuenta que dentro de una clase, las _variables_ se suelen denominar _propiedades_ o _atributos_, mientras que las _funciones_ acostumbran a llamarse _métodos_. En los siguientes ejercicios utilizaremos esta terminología.
+> **Nota:** Ten en cuenta que dentro de una clase, las _variables_ se suelen denominar _propiedades_ o _atributos_, mientras que las _funciones_ acostumbran a llamarse _métodos_. 
+En los siguientes ejercicios utilizaremos esta terminología.
 
 La clase `Sport` debe incorporar los siguientes métodos:
 
@@ -60,6 +64,7 @@ La clase `Sport` debe incorporar los siguientes métodos:
 - `getScore()`: Método que debe lanzar el siguiente error: "The 'getScore' function must be implemented in child classes."
 - `updateScore()`: Método que debe lanzar el siguiente error: "The 'updateScore' function must be implemented in child classes."
 // --------------------------------------------------------------------------------
+*/
 
 export const SportTypes = {
   Individual: Symbol('Individual'),
@@ -106,7 +111,7 @@ export class Sport {
 
 
 // --------------------------------------------------------------------------------
-// EXERCISE 3
+/* EXERCISE 3
 
 Para cada una de las clases que implementarás en este ejercicio, se pide:
 - Cada clase ha de extender de la clase `Sport`.
@@ -126,7 +131,8 @@ Para cada una de las clases que implementarás en este ejercicio, se pide:
 Esta clase debe incorporar los siguientes métodos:
 
 - `getSurface()`: Devuelve la superficie.
-- `getScore()`: Devuelve un objeto con la puntuación actual de un partido. Por ejemplo, si el equipo que juega en casa ha marcado 2 goles, y el equipo visitante ha marcado 1 gol, el objeto que devuelve `getScore` debería seguir el siguiente formato:
+- `getScore()`: Devuelve un objeto con la puntuación actual de un partido. Por ejemplo, si el equipo que juega en casa ha marcado 2 goles, y el equipo visitante ha marcado 1 gol, el objeto que devuelve `getScore` 
+debería seguir el siguiente formato:
 
   ```js
   {
@@ -135,8 +141,10 @@ Esta clase debe incorporar los siguientes métodos:
   }
   ```
 
-- `updateScore(who)`: Debe admitir un parámetro `who` con el valor `home` o `away` que indica el equipo que ha anotado el punto (gol), incrementando de esta manera su número de goles. Este método debe actualizar el marcador, es decir, las propiedades que utilices para contar los goles de cada equipo.
+- `updateScore(who)`: Debe admitir un parámetro `who` con el valor `home` o `away` que indica el equipo que ha anotado el punto (gol), incrementando de esta manera su número de goles. 
+Este método debe actualizar el marcador, es decir, las propiedades que utilices para contar los goles de cada equipo.
 // --------------------------------------------------------------------------------
+*/
 
 export class Football extends Sport {
   constructor(name, playersByTeam, type, surface){
@@ -168,7 +176,7 @@ export class Football extends Sport {
 }
 
 // --------------------------------------------------------------------------------
-// Exercise 4.2
+/* Exercise 3.2
 
 Implementa una clase `Basketball` cuyo constructor debe aceptar los siguientes parámetros:
 
@@ -178,8 +186,10 @@ Implementa una clase `Basketball` cuyo constructor debe aceptar los siguientes p
 
 Esta clase debe incorporar los siguientes métodos:
 
-- `getPlayersByMatch()`: Devuelve un texto con el siguiente formato: "Each team has X players. In total Y players participate in each match.", siendo X el número de jugadores por equipo y Y el total de jugadores en el terreno de juego.
-- `getScore()`: Devuelve un objeto con la puntuación actual de un partido. Por ejemplo, si el equipo que juega en casa ha marcado 7 puntos, y el equipo visitante ha marcado 8 puntos, el objeto que devuelve `getScore` debería seguir el siguiente formato:
+- `getPlayersByMatch()`: Devuelve un texto con el siguiente formato: "Each team has X players. In total Y players participate in each match.", siendo X el número de jugadores por equipo y Y el total de jugadores en el 
+terreno de juego.
+- `getScore()`: Devuelve un objeto con la puntuación actual de un partido. Por ejemplo, si el equipo que juega en casa ha marcado 7 puntos, y el equipo visitante ha marcado 8 puntos, el objeto que devuelve `getScore`
+debería seguir el siguiente formato:
 
   ```js
   {
@@ -188,9 +198,11 @@ Esta clase debe incorporar los siguientes métodos:
   }
   ```
 
-- `updateScore(who, points)`: Debe admitir un primer parámetro `who` con el valor `home` o `away` que indica quien ha anotado, y un segundo parámetro `points` que indica el número de puntos, incrementando de esta manera su puntuación. Este método debe actualizar el marcador. Además, se debe lanzar el mensaje de error "Between 1 and 3 points!" en caso que la puntuación recibida como parámetro esté fuera de rango (recuerda que en baloncesto la puntuación es entre 1 y 3).
+- `updateScore(who, points)`: Debe admitir un primer parámetro `who` con el valor `home` o `away` que indica quien ha anotado, y un segundo parámetro `points` que indica el número de puntos, 
+incrementando de esta manera su puntuación. Este método debe actualizar el marcador. Además, se debe lanzar el mensaje de error "Between 1 and 3 points!" en caso que la puntuación recibida como parámetro esté fuera de rango (recuerda que en baloncesto la puntuación es entre 1 y 3).
 
 // --------------------------------------------------------------------------------
+*/
 
 export class Basketball extends Sport {
   constructor(name, playersByTeam, type){
@@ -231,7 +243,7 @@ export class Basketball extends Sport {
 
 
 // --------------------------------------------------------------------------------
-// Exercise 4.3
+/* Exercise 3.3
 
 Implementa una clase `Tennis` cuyo constructor debe aceptar los siguientes parámetros:
 
@@ -243,7 +255,8 @@ Implementa una clase `Tennis` cuyo constructor debe aceptar los siguientes pará
 Esta clase debe incorporar los siguientes métodos:
 
 - `getTotalSets()`: Devuelve el número total de sets del partido.
-- `getScore()`: Devuelve un objeto con la puntuación actual de un partido. Por ejemplo, si el jugador que juega en casa ha ganado 0 sets, 1 juego y 15 puntos, y el jugador visitante ha ganado 0 sets, 0 juegos y 30 puntos, el objeto que devuelve `getScore` debería seguir el siguiente formato:
+- `getScore()`: Devuelve un objeto con la puntuación actual de un partido. Por ejemplo, si el jugador que juega en casa ha ganado 0 sets, 1 juego y 15 puntos, y el jugador visitante ha ganado 0 sets, 
+0 juegos y 30 puntos, el objeto que devuelve `getScore` debería seguir el siguiente formato:
 
   ```js
   {
@@ -260,11 +273,14 @@ Esta clase debe incorporar los siguientes métodos:
   }
   ```
 
-- `updateScore(who)`: Debe admitir un parámetro `who` con el valor `home` o `away` que indica quien ha anotado el punto, incrementado de esta manera la puntuación. Este método debe actualizar el marcador. Recuerda que el tennis se compone de puntos, juegos y sets, por lo que deberás crear un algoritmo que incluya toda la lógica de puntuación relativa a estos tres niveles.
+- `updateScore(who)`: Debe admitir un parámetro `who` con el valor `home` o `away` que indica quien ha anotado el punto, incrementado de esta manera la puntuación. Este método debe actualizar el marcador. 
+Recuerda que el tennis se compone de puntos, juegos y sets, por lo que deberás crear un algoritmo que incluya toda la lógica de puntuación relativa a estos tres niveles.
 
-> **Nota:** Para simplificar la implementación, no se debe considerar el estado de "deuce" (iguales), que se produce cuando dos jugadores están 40 a 40 en un mismo juego. Del mismo modo, tampoco se aplica la regla de dos juegos de diferencia para ganar un set. Es decir, el primer jugador que anota 4 puntos en un mismo juego, se lleva el juego y el primer jugador que gana 6 juegos, se lleva el set.
+> **Nota:** Para simplificar la implementación, no se debe considerar el estado de "deuce" (iguales), que se produce cuando dos jugadores están 40 a 40 en un mismo juego. Del mismo modo, tampoco se aplica 
+la regla de dos juegos de diferencia para ganar un set. Es decir, el primer jugador que anota 4 puntos en un mismo juego, se lleva el juego y el primer jugador que gana 6 juegos, se lleva el set.
 
 // --------------------------------------------------------------------------------
+*/
 
 export class Tennis extends Sport {
   constructor(name, playersByTeam, type, totalSets){
@@ -329,11 +345,13 @@ export class Tennis extends Sport {
 
 
 // --------------------------------------------------------------------------------
-// EXERCISE 4
+/* EXERCISE 4
 
-Este ejercicio está pensado para entender que hay otra forma de crear objetos. Esta forma se considera _legacy_ pero es una técnica que se sigue utilizando y es importante entender que las clases son _syntax sugar_ de dicha técnica. Además, este ejercicio te servirá para practicar y entender los prototipos y el uso de `this` en JavaScript.
+Este ejercicio está pensado para entender que hay otra forma de crear objetos. Esta forma se considera _legacy_ pero es una técnica que se sigue utilizando y es importante entender que las clases son _syntax sugar_ de 
+dicha técnica. Además, este ejercicio te servirá para practicar y entender los prototipos y el uso de `this` en JavaScript.
 
-Imagina que estás desarrollando un sistema de gestión de clases de baile para una escuela de danza. Necesitas modelar la información sobre diferentes tipos de clases de baile: algunas pueden ser clases regulares y otras pueden ser clases especiales que tienen un costo adicional debido a ciertas características especiales.
+Imagina que estás desarrollando un sistema de gestión de clases de baile para una escuela de danza. Necesitas modelar la información sobre diferentes tipos de clases de baile: algunas pueden ser clases regulares y 
+otras pueden ser clases especiales que tienen un costo adicional debido a ciertas características especiales.
 
 Realiza las siguientes tareas:
 
@@ -363,13 +381,16 @@ Realiza las siguientes tareas:
   }
   ```
 
-- Implementa el método `setLevel(newLevel)`, el cual recibe `newLevel` como parámetro que representa un nuevo nivel de dificultad, actualizando dicho valor en el objeto. No es necesario realizar ningún control sobre el valor del parámetro 'newLevel', ya que se considera que siempre llegará un valor correcto.
+- Implementa el método `setLevel(newLevel)`, el cual recibe `newLevel` como parámetro que representa un nuevo nivel de dificultad, actualizando dicho valor en el objeto. 
+No es necesario realizar ningún control sobre el valor del parámetro 'newLevel', ya que se considera que siempre llegará un valor correcto.
 
 Además, ten en cuenta que:
 - El método `isStyle(style)` debe implementarse de manera que cada instancia de `Dance` tenga su propia copia de esta función.
 - Los métodos `getInfo()` y `setLevel(newLevel)` deben implementarse de manera que se compartan a través del prototype.
 
 // --------------------------------------------------------------------------------
+*/
+
 export function Dance(name, style, level, duration) {
     this.name = name;
     this.style = style;
@@ -400,13 +421,17 @@ Dance.prototype.setLevel = function(newLevel) {
 
 
 // --------------------------------------------------------------------------------
-// EXERCISE 6 (OPTIONAL)
+/* EXERCISE 5 (OPTIONAL)
 
-Este ejercicio es opcional y te permitirá explorar el uso de expresiones regulares en JavaScript. Las expresiones regulares son una herramienta muy potente que se utiliza en los lenguajes de programación para buscar y manipular texto basado en patrones.
+Este ejercicio es opcional y te permitirá explorar el uso de expresiones regulares en JavaScript. Las expresiones regulares son una herramienta muy potente que se utiliza en los lenguajes de programación para buscar 
+y manipular texto basado en patrones.
 
-Puedes informarte de cómo definir expresiones regulares en la web de [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions) y hacer pruebas en la web [regex101.com](https://regex101.com/).
+Puedes informarte de cómo definir expresiones regulares en la web de [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions) y hacer pruebas en la web
+[regex101.com](https://regex101.com/).
 
-Como continuación del ejercicio 5, deberás implementar el método `calculateCost(rateText)`, implementado de manera que se comparta a través del prototype. Este método recibe `rateText` como parámetro, que es un texto que describe la tarifa por hora de la clase y que contiene el importe de la misma. Un ejemplo del formato de este texto es "The rate is 9.5 eur per hour", del cual deberás extraer el valor númerico (en este ejemplo, el valor 9.5). Este método debe calcular el coste total de la clase de baile.
+Como continuación del ejercicio 5, deberás implementar el método `calculateCost(rateText)`, implementado de manera que se comparta a través del prototype. Este método recibe `rateText` como parámetro, 
+que es un texto que describe la tarifa por hora de la clase y que contiene el importe de la misma. Un ejemplo del formato de este texto es "The rate is 9.5 eur per hour", del cual deberás extraer el valor númerico 
+(en este ejemplo, el valor 9.5). Este método debe calcular el coste total de la clase de baile.
 
 Debes tener en cuenta las siguientes consideraciones:
 
@@ -419,6 +444,8 @@ Debes tener en cuenta las siguientes consideraciones:
   Por ejemplo: Una tarifa a 10€/h con 2 horas de clase a nivel `Intermediate`, se facturaría a 10 * 2 * 1.5 = 30 euros.
 
 // --------------------------------------------------------------------------------
+*/
+
 
 Dance.prototype.calculateCost = function (rateText) {
 
